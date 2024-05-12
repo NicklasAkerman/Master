@@ -31,3 +31,7 @@ eclipse:
     - name: sudo snap install eclipse --classic
     - unless: snap list eclipse
 
+snapd_path:
+  cmd.run:
+    - name: echo 'export PATH="$PATH:/snap/bin"' >> ~/.bashrc
+    - unless: grep -q '/snap/bin' ~/.bashrc
